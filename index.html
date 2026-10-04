@@ -44,11 +44,11 @@ body{background:#0f0f0f;color:#fff;padding-bottom:110px}
 </head>
 <body>
 <div id="barraInstala" class="instala" onclick="instalarPWA()">📲 CLIQUE AQUI PRA INSTALAR COMO APP - NÃO SOME MAIS! 📲</div>
-<div class="top"><span>G GRATIDÃO V84 PWA 🤖</span><span>🤖 IA</span></div>
+<div class="top"><span>G GRATIDÃO V71 PWA 🤖</span><span>🤖 IA</span></div>
 <div class="search"><input id="busca" placeholder="Pesquisar pasta..." oninput="filtrarPastas()"><button class="btnS">🔍</button></div>
 <div class="menuTop">
 <button class="verde" onclick="convidar()">📲 Convidar</button>
-<button class="branco" onclick="apoiar()">⭐ Apoiar</button>
+<button class="branco" onclick="apoiar()">⭐ versao-pro</button>
 <button class="amarelo" onclick="ia()">🤖 IA</button>
 </div>
 <div id="telaPastas"><div id="listaPastas" class="gridPastas"></div></div>
@@ -58,7 +58,7 @@ body{background:#0f0f0f;color:#fff;padding-bottom:110px}
 <div id="listaFilmes" class="gridFilmes"></div>
 </div>
 <button class="fab" onclick="ia()">🤖</button>
-<div class="ads">V84 PWA - Vira App - Não some mais</div>
+<div class="ads">V71 PWA - Vira App - Não some mais</div>
 <div class="barraBottom">
 <button style="background:#00E676" onclick="addVideoCelular()">📱 MEMÓRIA</button>
 <button style="background:#42A5F5;color:#fff" onclick="addLink()">🔗 LINK</button>
@@ -191,16 +191,16 @@ function apagarFilme(i){ if(confirm('Apagar '+dados.categorias[dados.atual].film
 function apagarPasta(i){ if(confirm('Apagar pasta '+dados.categorias[i].nome+'?')){ dados.categorias.splice(i,1); if(dados.atual===i) dados.atual=-1; salvar(); } }
 function fechar(){ document.querySelectorAll('.modal').forEach(m=>{ if(m.id!='mPlayer') m.classList.remove('open'); }); }
 function filtrarPastas(){ render(); }
-function verMemoria(){ let tot=dados.categorias.reduce((a,c)=>a+c.filmes.length,0); alert(`💾 V84 PWA BLINDADA\nPastas: ${dados.categorias.length}\nFilmes: ${tot}\n\nVirou APP! Salvo em 3 lugares:\n- IndexedDB 500MB\n- localStorage\n- sessionStorage\n\nNunca mais some!`); }
+function verMemoria(){ let tot=dados.categorias.reduce((a,c)=>a+c.filmes.length,0); alert(`💾 V71 PWA BLINDADA\nPastas: ${dados.categorias.length}\nFilmes: ${tot}\n\nVirou APP! Salvo em 3 lugares:\n- IndexedDB 500MB\n- localStorage\n- sessionStorage\n\nNunca mais some!`); }
 function backup(){ let b=new Blob([JSON.stringify(dados)],{type:'application/json'}); let a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='G-V84-PWA-'+Date.now()+'.json'; a.click(); alert('Backup PWA salvo!'); }
 function restaurarClick(){ document.getElementById('inpRestore').click(); }
 document.getElementById('inpRestore').addEventListener('change',e=>{
  let f=e.target.files[0]; if(!f)return; let r=new FileReader(); r.onload=async()=>{ try{ let j=JSON.parse(r.result); if(j.categorias){ dados=j; if(typeof dados.atual==='undefined') dados.atual=-1; await salvar(); alert('✅ Restaurado PWA!'); } }catch(err){ alert('Erro'); } }; r.readAsText(f);
 });
 function resetar(){ if(confirm('RESET? Faça backup!')&&confirm('Apagar TUDO?')){ localStorage.clear(); sessionStorage.clear(); indexedDB.deleteDatabase('G_V84_PWA_BLINDADO'); location.reload(); } }
-function convidar(){ window.open('https://wa.me/?text='+encodeURIComponent('Baixa meu app G Gratidão V84 PWA '+location.href),'_blank'); }
-function apoiar(){ alert('PIX bancogratidao.oficial@gmail.com - V84 PWA'); }
-function ia(){ alert('🤖 V84 PWA - Vira APP, não some mais, com RESTAURAR e BACKUP'); }
+function convidar(){ window.open('https://wa.me/?text='+encodeURIComponent('Baixa meu app G Gratidão V71 PWA '+location.href),'_blank'); }
+function apoiar(){ alert('PIX bancogratidao.oficial@gmail.com - V71 PWA'); }
+function ia(){ alert('🤖 V71 PWA - Vira APP, não some mais, com RESTAURAR e BACKUP'); }
 
 (async()=>{ await carregar(); render(); })();
 </script>
